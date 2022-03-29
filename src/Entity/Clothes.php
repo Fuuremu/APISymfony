@@ -43,7 +43,6 @@ class Clothes
 
     public function __construct()
     {
-        $this->Color = new ArrayCollection();
         $this->guilties = new ArrayCollection();
     }
 

@@ -73,4 +73,15 @@ class ClothesRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+    * @return string
+    */
+
+    public function getMaxId(): string
+    {
+        return $this->createQueryBuilder('c')
+            ->select('MAX(c.id) AS max_id')
+            ->getQuery()->getSingleScalarResult();
+    }
 }
