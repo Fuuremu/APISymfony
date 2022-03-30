@@ -29,6 +29,26 @@ class Suspect
      */
     private $guilties;
 
+    /**
+     * @ORM\Column(type="string", length=30)
+     */
+    private $surname;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $age;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $genre;
+
     public function __construct()
     {
         $this->guilties = new ArrayCollection();
@@ -77,6 +97,54 @@ class Suspect
                 $guilty->setSuspect(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSurname(): ?string
+    {
+        return $this->surname;
+    }
+
+    public function setSurname(string $surname): self
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getAge(): ?int
+    {
+        return $this->age;
+    }
+
+    public function setAge(int $age): self
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    public function getGenre(): ?bool
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(bool $genre): self
+    {
+        $this->genre = $genre;
 
         return $this;
     }
